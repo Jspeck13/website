@@ -4,13 +4,20 @@
     "href": "index.html",
     "title": "Website",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+    "text": "Welcome to my website !"
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "Hi my name is Jordan and I am a PhD student at the University of Maryland."
+  },
+  {
+    "objectID": "research.html",
+    "href": "research.html",
+    "title": "research",
+    "section": "",
+    "text": "My research interest are race and ethnic politics"
   }
 ]

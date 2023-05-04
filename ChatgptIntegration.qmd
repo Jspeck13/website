@@ -4,6 +4,10 @@ title: "Chatgpt Integration"
 ```{r}
 library(stargazer)
 library(chatgpt)
+
+my_API <- "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"
+
+
 Bidenmodel <- glm(VoteBiden ~ PSSRJ + likeB + feelJB, family = binomial (link = "probit"))
 
 

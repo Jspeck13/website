@@ -11,7 +11,7 @@ website:
         text: About
       - href: research.qmd
         text: research
-      - href: network.qmd
+      - href: Network.qmd
         text: Newtork
 
 format:

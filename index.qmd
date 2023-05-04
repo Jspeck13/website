@@ -3,3 +3,5 @@ title: "Website"
 ---
 
 Welcome to my website !
+
+This website was created for 729B a class on applied Data analysis. My favorite part of the class was the introduction to the integration of Chatgpt and R. I thought this aspect was on the most helpful parts, and I will definitely bring this with me on future projects.

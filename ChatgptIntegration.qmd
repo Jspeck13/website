@@ -1,0 +1,16 @@
+---
+title: "Chatgpt Integration"
+---
+```{r}
+library(stargazer)
+library(chatgpt)
+Bidenmodel <- glm(VoteBiden ~ PSSRJ + likeB + feelJB, family = binomial (link = "probit"))
+
+
+
+stargazer(Bidenmodel, type = "text", title = "Please interpret these results, my dependent variable is if a person voted for biden, and my independent is the PSSR model", out = "tablebiden.htm") 
+
+question2<-html_text(read_html("tablebiden.htm")) 
+ask_2 <- hey_chatGPT(question2)
+str_trim(ask_2$choices[[1]]$message$content)
+```

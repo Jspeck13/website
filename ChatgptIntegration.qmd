@@ -1,20 +1,190 @@
 ---
 title: "Chatgpt Integration"
 ---
+
 ```{r}
 library(stargazer)
 library(chatgpt)
+library(rvest)
+library(httr)
+library(jsonlite)
+library(stringr)
+library(tidyverse)
+library(gdata)
 
-my_API <- "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"
+library(readxl)
+ERP_F <- read_excel("ERP.F.xls")
+
+EERP <- ERP_F
+
+q1b <- EERP$bidend
+
+q1b <- as.numeric(q1b)   
+
+q2b <- EERP$bident
+
+q2b <- as.numeric(q2b)
 
 
-Bidenmodel <- glm(VoteBiden ~ PSSRJ + likeB + feelJB, family = binomial (link = "probit"))
+
+q3b <- EERP$bidenrm
+
+q3b <- as.numeric(q3b)
+
+
+q4b <- EERP$bidenf
+
+q4b <- as.numeric(q4b)
+
+q5b <- EERP$bidenp
+
+q5b <- as.numeric(q5b)
+
+q6b <- EERP$bidende
+
+q6b <- as.numeric(q6b)
+
+q7b <- EERP$bidenlm
+
+q7b <- as.numeric(q7b)
+
+q8b <- EERP$bidentr
+
+q8b <- as.numeric(q8b)
+
+q9b <- EERP$bidenap
+
+q9b <- as.numeric(q9b)
+
+EERP$index <- q1b + q2b + q3b + q4b + q5b + q6b + q7b + q8b + q9b
+
+index <- EERP$index
+
+VoteBiden <- EERP$vcbiden
+
+VoteBiden <- as.numeric(VoteBiden)
+
+VoteBiden <- ifelse(VoteBiden >3,1,0)
+
+PSSRJ <- index
+
+race <- EERP$race
+pid <- EERP$pid
+
+my_API <- "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"
+
+hey_chatGPT <- function(answer_my_question) {
+  chat_GPT_answer <- POST(
+    url = "https://api.openai.com/v1/chat/completions",
+    add_headers(Authorization = paste("Bearer", my_API)),
+    content_type_json(),
+    encode = "json",
+    body = list(
+#      model = "gpt-3.5-turbo-0301",
+       model = "gpt-3.5-turbo-0301",
+        messages = list(
+        list(
+          role = "user",
+          content = answer_my_question
+        )
+      )
+    )
+  )
+  content(chat_GPT_answer)
+}
 
 
 
-stargazer(Bidenmodel, type = "text", title = "Please interpret these results, my dependent variable is if a person voted for biden, and my independent is the PSSR model", out = "tablebiden.htm") 
+Bidenmodel <- glm(VoteBiden ~ PSSRJ + race + pid, family = binomial (link = "probit"))
+
+
+
+stargazer(Bidenmodel, type = "text", title = "Please interpret these results, my dependent variable is if a person voted for biden, and my independent is the PSSRJ model. PSSRJ measures the parasocial relationship between Joe Biden and voters. Also discuss why the results are what they are and why this matters for the worl ", out = "tablebiden.htm") 
 
 question2<-html_text(read_html("tablebiden.htm")) 
 ask_2 <- hey_chatGPT(question2)
 str_trim(ask_2$choices[[1]]$message$content)
+
+
+
+
+
+
+
+
+
+
 ```
+
+
+
+```{r}
+tq1 <- EERP$dtap 
+
+tq1 <- as.numeric(tq1)
+
+tq2 <- EERP$dtt
+
+tq2 <- as.numeric(tq2)
+
+tq3 <- EERP$dtlm 
+
+tq3 <- as.numeric(tq3)
+
+tq4 <- EERP$dtde
+
+tq4 <-as.numeric(tq4)
+
+tq5 <- EERP$dtgp
+
+tq5 <- as.numeric(tq5)
+
+
+tq6 <- EERP$dtf
+
+tq6 <- as.numeric(tq6)
+
+
+tq7 <- EERP$dtrm 
+
+
+tq7 <- as.numeric(tq7)
+
+tq8 <- EERP$dtd
+
+tq8 <- as.numeric(tq8)
+
+tq9 <- EERP$dtp 
+
+tq9 <- as.numeric(tq9)
+
+
+dtindex <- tq1 + tq2 + tq3 + tq4 + tq5 + tq6 + tq7 + tq8 + tq9
+
+
+PSSRD <- dtindex
+
+
+VoteTrump <- EERP$vctrump
+
+VoteTrump1 <- as.numeric(VoteTrump)
+
+VoteTrump1 <- ifelse(VoteTrump1 >3,1,0)
+
+
+
+Trumpmodel <- glm(VoteTrump1 ~ PSSRD + race + pid, family = binomial (link = "probit"))
+
+stargazer(Trumpmodel, type = "text", title = "Parasocial Relationships and Vote for Trump", out = "PSSR_Table.htm")
+
+stargazer(Trumpmodel, type = "text", title = "Please interpret these results, my dependent variable is if a person voted for Trump, and my independent is the PSSRD model. PSSRD measures the parasocial relationship between donald Trump and voters. Also discuss why the results are what they are and why this matters for the world", out = "tabletrump.htm") 
+
+
+question3<-html_text(read_html("tabletrump.htm")) 
+ask_3 <- hey_chatGPT(question3)
+str_trim(ask_3$choices[[1]]$message$content)
+
+
+
+```
+

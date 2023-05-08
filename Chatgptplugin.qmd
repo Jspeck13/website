@@ -1,0 +1,5 @@
+---
+title: "chatgptplugin"
+---
+
+In this section I want to show how I am using chatgpt for my own research project.

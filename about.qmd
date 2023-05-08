@@ -1,5 +1,17 @@
 ---
 title: "About"
+about: 
+  template: jolla
+  image-shape: round
+  image-width: 15em
+  image: Headshot.png
+  links: 
+    - text: Email 
+      icon: envelope
+      href: jspeck13@umd.edu
+    - text: Github
+      icon: github
+      href: https://github.com/Jspeck13
 ---
 
 Hi my name is Jordan and I am a PhD student at the University of Maryland.

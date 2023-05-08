@@ -1,20 +1,5 @@
 ---
 title: "Website"
-
-
-about: 
-  template: jolla
-  image-shape: round
-  image-width: 15em 
-  links: 
-    - text: Email 
-      icon: envelope
-      href: jspeck13@umd.edu
-    - text: Github
-      icon: github
-      href: https://github.com/Jspeck13
-  
-
 ---
 
 Welcome to my website !

@@ -2,7 +2,7 @@
 title: "Chatgpt Integration"
 ---
 
-```{r}
+```{r, eval=FALSE}
 library(stargazer)
 library(chatgpt)
 library(rvest)
@@ -71,7 +71,7 @@ PSSRJ <- index
 race <- EERP$race
 pid <- EERP$pid
 
-my_API <- "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"
+
 
 hey_chatGPT <- function(answer_my_question) {
   chat_GPT_answer <- POST(
@@ -115,10 +115,16 @@ str_trim(ask_2$choices[[1]]$message$content)
 
 
 ```
+Based on the regression results provided, the PSSRJ model is negatively related to the likelihood of a person voting for Joe Biden (VoteBiden). Specifically, for each unit increase in the PSSRJ score, there is a decrease of -0.049 in the log odds of a person voting for Biden. This effect is statistically significant at the p<0.01 level, indicating a strong relationship between PSSRJ and VoteBiden.
+
+The other independent variables in the model, race and political identification (pid), also have significant effects on the dependent variable. The coefficient for race is negative, indicating that non-white voters are less likely to vote for Biden. The coefficient for pid is positive, indicating that Democrats are more likely to vote for Biden compared to Republicans or Independents.
+
+Overall, these results suggest that a stronger parasocial relationship between Joe Biden and voters (as measured by the PSSRJ model) is associated with a decreased likelihood of a person voting for Biden. One possible explanation for this finding is that individuals who feel a strong parasocial connection to Biden may already feel positively disposed towards him and therefore do not need further persuasion to vote for him. Alternatively, it's possible that a strong parasocial relationship may lead to a complacency effect, where individuals feel that they have already shown their support for Biden by following him on social media or consuming other forms of content related to him, and therefore do not need to vote.
+
+These results have important implications for political campaigns and communication strategies, as they suggest that simply building a strong parasocial relationship with voters may not be enough to guarantee their support. Instead, campaigns may need to focus on other factors, such as policy messaging, to persuade voters to actually cast their ballots.
 
 
-
-```{r}
+```{r, eval=FALSE}
 tq1 <- EERP$dtap 
 
 tq1 <- as.numeric(tq1)
@@ -187,4 +193,4 @@ str_trim(ask_3$choices[[1]]$message$content)
 
 
 ```
-
+Based on the results, the PSSRD model has a negative and statistically significant effect on whether a person voted for Trump or not. Specifically, for each unit increase in PSSRD score, the odds of voting for Trump are decreased by 0.099. This suggests that as individuals' parasocial relationship with Trump becomes stronger, they are less likely to vote for him.\n\nAdditionally, the race and party identification of the respondents also play a role in their voting behavior. The coefficient for race suggests that non-white individuals are less likely to vote for Trump. The coefficient for party identification suggests that individuals who identify as Democrats are also less likely to vote for Trump.\n\nThese results are important for understanding the role of parasocial relationships in political behavior. The PSSRD model provides a new perspective on the relationship between voters and political figures, suggesting that these relationships can have a measurable impact on voting behavior. This highlights the need for further research into the role of media and communication in shaping political preferences.\n\nThe results also underscore the importance of demographic factors in shaping political choices. Race and party identification, in addition to parasocial relationships, appear to play a significant role in voting behavior. This highlights the need for political campaigns to consider the diversity of their constituents and tailor their messages accordingly.

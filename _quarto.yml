@@ -11,6 +11,8 @@ website:
         text: About
       - href: research.qmd
         text: research
+      - href: ChatgptIntegration.qmd
+        text: ChatGPT Integration
       
 
 format:

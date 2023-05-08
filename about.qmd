@@ -14,6 +14,6 @@ about:
       href: https://github.com/Jspeck13
 ---
 
-Hi my name is Jordan and I am a PhD student at the University of Maryland.
+Hi my name is Jordan Spencer and I am a PhD student at the University of Maryland.
 
 In my free time I like the exercise, talk with friends and eat good food.
